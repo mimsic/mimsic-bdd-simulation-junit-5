@@ -27,7 +27,7 @@ public class SimulatorMethodOrdererUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void add(List<T> descriptorList, MethodDescriptor descriptor) {
-        descriptorList.add((T) descriptor);
+    public static <T extends MethodDescriptor> void add(List<T> descriptors, MethodDescriptor descriptor) {
+        descriptors.add((T) descriptor);
     }
 }
