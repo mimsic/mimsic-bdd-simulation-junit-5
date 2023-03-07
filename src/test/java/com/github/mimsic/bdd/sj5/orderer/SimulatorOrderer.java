@@ -73,10 +73,12 @@ public class SimulatorOrderer implements MethodOrderer {
         });
     }
 
+    @SuppressWarnings("unchecked")
     private <T extends MethodDescriptor> T convert(MethodDescriptor descriptor) {
         return (T) descriptor;
     }
 
+    @SuppressWarnings("unchecked")
     private <T> void add(List<T> descriptorList, MethodDescriptor descriptor) {
         descriptorList.add((T) descriptor);
     }
