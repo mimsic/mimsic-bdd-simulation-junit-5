@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Story(description = "Bdd Comparator Service Test", path = "BddComparatorServiceTest.story")
-@TestMethodOrder(SimulatorMethodOrderer.StoryMethodOrderer.class)
+@TestMethodOrder(SimulatorMethodOrderer.class)
 @DisplayNameGeneration(SimulatorDisplayNameGenerator.class)
 public class BddComparatorServiceTest {
 
