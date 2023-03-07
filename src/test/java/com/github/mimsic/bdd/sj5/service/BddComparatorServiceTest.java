@@ -5,7 +5,7 @@ import com.github.mimsic.bdd.sj5.annotation.Story;
 import com.github.mimsic.bdd.sj5.annotation.Then;
 import com.github.mimsic.bdd.sj5.annotation.When;
 import com.github.mimsic.bdd.sj5.generator.SimulatorDisplayNameGenerator;
-import com.github.mimsic.bdd.sj5.orderer.SimulatorOrderer;
+import com.github.mimsic.bdd.sj5.orderer.SimulatorMethodOrderer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -18,7 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Story(description = "Bdd Comparator Service Test", path = "BddComparatorServiceTest.story")
-@TestMethodOrder(SimulatorOrderer.class)
+@TestMethodOrder(SimulatorMethodOrderer.class)
 @DisplayNameGeneration(SimulatorDisplayNameGenerator.class)
 public class BddComparatorServiceTest {
 
