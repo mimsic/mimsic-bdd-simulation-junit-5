@@ -12,13 +12,18 @@ public class SimulatorMethodOrdererUtil {
             List<MethodDescriptor> orderedDescriptors,
             String line) {
 
-        unorderedDescriptors.forEach(methodDescriptor -> {
+        unorderedDescriptors.stream()
+                .filter((MethodDescriptor methodDescriptor) -> isDisplayName(methodDescriptor, line))
+                .findFirst()
+                .ifPresent((MethodDescriptor methodDescriptor) -> {
+                    orderedDescriptors.add(methodDescriptor);
+                    unorderedDescriptors.remove(methodDescriptor);
+                });
+    }
 
-            DisplayName annotation = methodDescriptor.getMethod().getAnnotation(DisplayName.class);
-            if (annotation != null && annotation.value().equals(line)) {
-                orderedDescriptors.add(methodDescriptor);
-            }
-        });
+    private static boolean isDisplayName(MethodDescriptor methodDescriptor, String line) {
+        DisplayName annotation = methodDescriptor.getMethod().getAnnotation(DisplayName.class);
+        return annotation != null && annotation.value().equals(line);
     }
 
     @SuppressWarnings("unchecked")
